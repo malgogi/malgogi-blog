@@ -1,6 +1,6 @@
 ---
 title: "Getting Started"
-metaTitle: "Java TEst"
+metaTitle: "Java Test"
 metaDescription: "Java Page"
 ---
 
