@@ -1,6 +1,6 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/",
+		"pathPrefix": "/malgogi-blog",
 		"siteUrl": "https://malgogi.github.io",
 		"gaTrackingId": null
 	},
@@ -10,7 +10,6 @@ const config = {
 		"title": "Malgogi 개발일지",
 		"githubUrl": "https://github.com/malgogi/malgogi-blog",
 		"helpUrl": "",
-		"tweetText": "",
 		"links": [
 			{ "text": "", "link": ""}
 		],

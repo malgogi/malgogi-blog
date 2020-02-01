@@ -1,7 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import GitHubButton from 'react-github-btn'
-import Link from './link';
 import './styles.css';
 import config from '../../config.js';
 
@@ -44,7 +43,6 @@ const Header = ({location}) => (
               headerTitle
               githubUrl
               helpUrl
-              tweetText
               logo {
                 link
                 image
@@ -64,8 +62,6 @@ const Header = ({location}) => (
             headerTitle,
             githubUrl,
             helpUrl,
-            tweetText,
-            logo,
             headerLinks,
           }
         }
@@ -109,16 +105,6 @@ const Header = ({location}) => (
                 })}
                 {helpUrl !== '' ?
                   (<li><a href={helpUrl}><img src={help} alt={'Help icon'}/></a></li>) : null
-                }
-                {(tweetText !== '' || githubUrl !== '') ?
-                  (<li className="divider hiddenMobile"></li>): null
-                }
-                {tweetText !== '' ?
-                  (<li>
-                    <a href={'https://twitter.com/intent/tweet?&text=' + tweetText} target="_blank" rel="noopener">
-                      <img className={'shareIcon'} src={twitter} alt={'Twitter'} />
-                    </a>
-                   </li>) : null
                 }
                 {githubUrl !== '' ?
                   (<li className={'githubBtn'}>
