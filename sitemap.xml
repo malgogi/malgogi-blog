@@ -4,4 +4,6 @@
 <url> <loc>https://malgogi.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://malgogi.github.io/codeblock/1-index</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://malgogi.github.io/introduction</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://malgogi.github.io/java/1-index</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://malgogi.github.io/java</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
