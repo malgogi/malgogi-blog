@@ -24,11 +24,10 @@ const config = {
 	"sidebar": {
 		"forcedNavOrder": [
 			"/introduction",
-    		"/codeblock"
+    		
 		],
-    	"collapsedNav": [
-      		"/codeblock"
-    	],
+		"collapsedNav": [
+		],
 		"links": [
 			{ "text": "Malgogi", "link": "https://malgogi.github.io" },
 		],
