@@ -29,7 +29,9 @@ Spring MVC의 경우 해당 Servlet으로 구현이 되어 있습니다.
 
 ## Servlet Diagram
 
-![servlet-state-diagram](./img/servlet-state-diagram.png)
+https://javaee.github.io/servlet-spec/downloads/servlet-4.0/servlet-4_0_FINAL.pdf
+
+의 2-20 페이지 참조 부탁드립니다.
 
 ## 출처
 
