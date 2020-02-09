@@ -4,8 +4,6 @@ metaTitle: "Servlet"
 metaDescription: "Servlet basic"
 ---
 
-# Servlet
-
 본 문서는 Servlet 4.0 spec을 기준으로 읽으면서 정리한 내용입니다.
 잘못된 내용은 편하게 수정 요청 주시면 됩니다.
 
