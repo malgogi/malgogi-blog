@@ -8,4 +8,6 @@
 <url> <loc>https://malgogi.github.io/malgogi-blog/java/spring/servlet</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://malgogi.github.io/malgogi-blog/utils/intellij</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://malgogi.github.io/malgogi-blog/java/spring/basic</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://malgogi.github.io/malgogi-blog/java/rxJava</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://malgogi.github.io/malgogi-blog/java/rxJava/basic</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
