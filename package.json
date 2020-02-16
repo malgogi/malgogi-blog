@@ -9,6 +9,7 @@
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
     "@emotion/styled-base": "^10.0.24",
+    "@gatsby-contrib/gatsby-transformer-ipynb": "^0.5.8",
     "@mdx-js/loader": "^1.5.1",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",

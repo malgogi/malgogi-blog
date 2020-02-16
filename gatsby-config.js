@@ -10,6 +10,7 @@ const plugins = [
         component: require.resolve(`./src/templates/docs.js`)
     }
   },
+  `@gatsby-contrib/gatsby-transformer-ipynb`,
   'gatsby-plugin-emotion',
   'gatsby-plugin-remove-trailing-slashes',
   'gatsby-plugin-react-helmet',

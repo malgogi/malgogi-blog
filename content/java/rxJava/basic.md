@@ -104,7 +104,58 @@ Observable.create(emitter -> {
 .subscribe(System.out::println, Throwable::printStackTrace);
 ```
 
+### Background Computation
+
+RXJava는 Scheduler 기능을 제공하며 Schedule thread에서 background task를 수행할 수 있다. 다음과 같이 thread를 따로 지정해서 넣을 수도 있다. 다만 Thread를 바로 호출하는 것이 아닌, Scheduler에 injection을 해주는 형태로써 사용해야 한다.
+
+```java
+Executor subscriber = Executors.newSingleThreadExecutor(new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread t = new Thread(r);
+                t.setName("subscriber thread");
+
+                return t;
+            }
+        });
+
+        Executor observer = Executors.newSingleThreadExecutor(new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread t = new Thread(r);
+                t.setName("observer thread");
+
+                return t;
+            }
+        });
+
+
+        Flowable.fromCallable(() -> {
+            System.out.println("subscriber side");
+            System.out.println(Thread.currentThread().getName());
+            Thread.sleep(3000 );
+
+            return "Done Rx";
+        }).subscribeOn(Schedulers.from(subscriber))
+                .observeOn(Schedulers.from(observer))
+                .subscribe((item) -> {
+                    System.out.println("observer side");
+                    System.out.println(Thread.currentThread().getName());
+
+                }, Throwable::printStackTrace);
+
+
+        System.out.println(Thread.currentThread().getName());
+        Thread.sleep(4000);
+        System.out.println("Done main");
+```
+
+### Schedulers
+
+RXJava에서는 Thread를 사용할 때, Schedule을 지원을 하며 몇가지 utility를 지원한다.
+
 ## 출처
 
+[Reactive X Operators](http://reactivex.io/documentation/operators.html)
 [ReactiveX](http://reactivex.io/)
 [RxJava git](https://github.com/ReactiveX/RxJava)
