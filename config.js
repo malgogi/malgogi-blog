@@ -5,7 +5,6 @@ const config = {
 		"gaTrackingId": null
 	},
 	"header": {
-		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/favicon.png",
 		"logoLink": "https://malgogi.github.io",
 		"title": "Malgogi 개발일지",
 		"githubUrl": "https://github.com/malgogi/malgogi-blog",
@@ -24,7 +23,7 @@ const config = {
 	"sidebar": {
 		"forcedNavOrder": [
 			"/introduction",
-    		
+
 		],
 		"collapsedNav": [
 		],
@@ -51,13 +50,7 @@ const config = {
 			"theme_color": "#6b37bf",
 			"display": "standalone",
 			"crossOrigin": "use-credentials",
-			icons: [
-				{
-					src: "src/pwa-512.png",
-					sizes: `512x512`,
-					type: `image/png`,
-				},
-			],
+			"icon": "src/icons/favicon.ico"
 		},
 	}
 };

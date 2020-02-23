@@ -2,59 +2,63 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import GitHubButton from 'react-github-btn'
 import './styles.css';
-import config from '../../config.js';
 
-import Loadable from 'react-loadable';
-import LoadingProvider from './mdxComponents/loading';
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import {makeStyles} from "@material-ui/core/styles";
 
-const help = require('./images/help.svg');
-const isSearchEnabled = config.header.search && config.header.search.enabled ? true : false;
+import iconLoc from './images/icon.png';
 
-let searchIndices = [];
-if(isSearchEnabled && config.header.search.indexName) {
-  searchIndices.push(
-    { name: `${config.header.search.indexName}`, title: `Results`, hitComp: `PageHit` },
-  );
-}
 
-import Sidebar from "./sidebar";
-
-const LoadableComponent = Loadable({
-  loader: () => import('./search/index'),
-  loading: LoadingProvider,
-});
-
-function myFunction() {
-  var x = document.getElementById("navbar");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
+const QUERY_HEADER_TITLE = graphql`
+query headerTitleQuery {
+  site {
+    siteMetadata {
+      headerTitle
+      githubUrl
+      helpUrl
+      logo {
+        link
+      }
+      headerLinks {
+        link
+        text
+      }
+    }
   }
 }
+`;
 
-const Header = ({location}) => (
-  <StaticQuery
-    query={
-      graphql`
-        query headerTitleQuery {
-          site {
-            siteMetadata {
-              headerTitle
-              githubUrl
-              helpUrl
-              logo {
-                link
-                image
-              }
-              headerLinks {
-                link
-                text
-              }
-            }
-          }
-        }
-        `}
+const useStyles = makeStyles((theme) => ({
+  header: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+  logo: {
+    verticalAlign: 'bottom'
+  },
+  title: {
+    flexGrow: 1
+  }
+}));
+
+const CustomHeader = ({ title, githubUrl }) => {
+  const classes = useStyles();
+
+  return (<AppBar position="sticky" color="white" className={classes.header}>
+
+    <Toolbar>
+      <Typography variant="h6" className={classes.title}>
+        <img src={iconLoc} className={classes.logo} width={30} height={30}/> { title }
+      </Typography>
+      <GitHubButton href={githubUrl} data-show-count="true" aria-label="Star on GitHub">Star</GitHubButton>
+    </Toolbar>
+  </AppBar>)
+};
+
+const HeaderContainer = ({location}) => {
+  return (<StaticQuery
+    query={QUERY_HEADER_TITLE}
     render={(data) => {
       const {
         site: {
@@ -66,57 +70,10 @@ const Header = ({location}) => (
           }
         }
       } = data;
-      
-      return (
-        <div className={'navBarWrapper'}>
-          <nav className={'navBarDefault'}>
-            <div className={'navBarHeader'}>
-              <div className={"headerTitle displayInline"} dangerouslySetInnerHTML={{__html: headerTitle}} />
-              <span onClick={myFunction} className={'navBarToggle'}>
-                <span className={'iconBar'}></span>
-                <span className={'iconBar'}></span>
-                <span className={'iconBar'}></span>
-              </span>
-            </div>
-            {isSearchEnabled ? (
-              <div className={'searchWrapper hiddenMobile navBarUL'}>
-                <LoadableComponent collapse={true} indices={searchIndices} />
-              </div>
-              ): null}
-            <div id="navbar" className={'topnav'}>
-              <div className={'visibleMobile'}>
-                <Sidebar location={location} />
-                <hr/>
-                {isSearchEnabled ? (
-                  <div className={'searchWrapper'}>
-                    <LoadableComponent collapse={true} indices={searchIndices} />
-                  </div>
-                  ): null}
-              </div>
-              <ul className={'navBarUL navBarNav navBarULRight'}>
-                {headerLinks.map((link, key) => {
-                  if(link.link !== '' && link.text !== '') {
-                    return(
-                      <li key={key}>
-                        <a className="sidebarLink" href={link.link} target="_blank" rel="noopener" dangerouslySetInnerHTML={{__html: link.text}} />
-                      </li>
-                    );
-                  }
-                })}
-                {helpUrl !== '' ?
-                  (<li><a href={helpUrl}><img src={help} alt={'Help icon'}/></a></li>) : null
-                }
-                {githubUrl !== '' ?
-                  (<li className={'githubBtn'}>
-                    <GitHubButton href={githubUrl} data-show-count="true" aria-label="Star on GitHub">Star</GitHubButton>
-                  </li>) : null}
-              </ul>
-            </div>
-          </nav>
-        </div>
-      );
-    }}
-  />
-);
 
-export default Header;
+      return (<CustomHeader title={headerTitle} githubUrl={githubUrl} />);
+    }}
+  />);
+};
+
+export default HeaderContainer;

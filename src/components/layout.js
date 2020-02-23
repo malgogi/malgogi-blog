@@ -4,7 +4,6 @@ import { MDXProvider } from "@mdx-js/react";
 import ThemeProvider from "./themeProvider";
 import mdxComponents from "./mdxComponents";
 import Sidebar from "./sidebar";
-import RightSidebar from "./rightSidebar";
 
 const Wrapper = styled('div')`
   display: flex;
@@ -19,7 +18,7 @@ const Content = styled('main')`
   display: flex;
   flex-grow: 1;
   margin: 0px 88px;
-  margin-top: 3rem;
+  margin-top: 90px;
 
   @media only screen and (max-width: 1023px) {
     padding-left: 0;
@@ -30,7 +29,7 @@ const Content = styled('main')`
 
 const MaxWidth = styled('div')`
 
-  @media only screen and (max-width: 50rem) {
+  @media only screen and (max-width: 70rem) {
     width: 100%;
     position: relative;
   }
@@ -51,9 +50,6 @@ const Layout = ({ children, location }) => (
         <Content>
           <MaxWidth>{children}</MaxWidth>
         </Content>
-        <RightSideBarWidth className={'hiddenMobile'}>
-          <RightSidebar location={location} />
-        </RightSideBarWidth>
       </Wrapper>
     </MDXProvider>
   </ThemeProvider>

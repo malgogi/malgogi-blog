@@ -90,7 +90,7 @@ const Tree = ({edges}) => {
   }
   return (
     <TreeNode
-      className={`${config.sidebar.frontLine ? 'showFrontLine' : 'hideFrontLine'} firstLevel`}
+      className='firstLevel'
       setCollapsed={toggle}
       collapsed={collapsed}
       {...treeData}
