@@ -23,7 +23,6 @@ const config = {
 	"sidebar": {
 		"forcedNavOrder": [
 			"/introduction",
-
 		],
 		"collapsedNav": [
 		],
@@ -37,11 +36,11 @@ const config = {
 		"title": "Malgogi blog",
 		"description": "Malgogi blog",
 		"ogImage": null,
-		"docsLocation": "https://github.com/malgogi/malgogi-blog/tree/master/content",
-		"favicon": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg"
+    "favicon": "src/icons/favicon.ico",
+		"docsLocation": "https://github.com/malgogi/malgogi-blog/tree/master/content"
 	},
 	"pwa": {
-		"enabled": false, // disabling this will also remove the existing service worker.
+		"enabled": true, // disabling this will also remove the existing service worker.
 		"manifest": {
 			"name": "Malgogi Blog",
 			"short_name": "MalgogiBlog",
@@ -50,7 +49,7 @@ const config = {
 			"theme_color": "#6b37bf",
 			"display": "standalone",
 			"crossOrigin": "use-credentials",
-			"icon": "src/icons/favicon.ico"
+			"icon": "src/icons/favicon-32x32.png"
 		},
 	}
 };

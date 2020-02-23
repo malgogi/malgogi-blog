@@ -1,6 +1,6 @@
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
-    `This tutorial has been updated. ` +
+    `Version updated ` +
       `Reload to display the latest version?`
   )
   if (answer === true) {
