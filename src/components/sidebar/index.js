@@ -5,6 +5,7 @@ import '../styles.css';
 import Drawer from "@material-ui/core/Drawer";
 import {List} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
+import ListItem from "@material-ui/core/ListItem";
 
 const ALL_MDX = graphql`query {
   allMdx {
@@ -33,7 +34,7 @@ const CustomSidebar = ({ items }) => {
       className={classes.drawerRoot}
       variant="permanent">
       <div className={classes.toolbar}/>
-      <List>
+      <List component="div" disablePadding>
         <Tree
           edges={items.edges}
         />

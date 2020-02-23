@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 const CustomHeader = ({ title, githubUrl }) => {
   const classes = useStyles();
 
-  return (<AppBar position="absolute" color="white" className={classes.header}>
+  return (<AppBar position="sticky" color="white" className={classes.header}>
 
     <Toolbar>
       <Typography variant="h6" className={classes.title}>

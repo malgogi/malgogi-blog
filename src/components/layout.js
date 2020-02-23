@@ -4,7 +4,6 @@ import { MDXProvider } from "@mdx-js/react";
 import ThemeProvider from "./themeProvider";
 import mdxComponents from "./mdxComponents";
 import Sidebar from "./sidebar";
-import RightSidebar from "./rightSidebar";
 
 const Wrapper = styled('div')`
   display: flex;
@@ -30,7 +29,7 @@ const Content = styled('main')`
 
 const MaxWidth = styled('div')`
 
-  @media only screen and (max-width: 50rem) {
+  @media only screen and (max-width: 70rem) {
     width: 100%;
     position: relative;
   }
