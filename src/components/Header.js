@@ -2,42 +2,14 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import GitHubButton from 'react-github-btn'
 import './styles.css';
-import config from '../../config.js';
 
-import Loadable from 'react-loadable';
-import LoadingProvider from './mdxComponents/loading';
-
-const help = require('./images/help.svg');
-const isSearchEnabled = config.header.search && config.header.search.enabled ? true : false;
-
-let searchIndices = [];
-if(isSearchEnabled && config.header.search.indexName) {
-  searchIndices.push(
-    { name: `${config.header.search.indexName}`, title: `Results`, hitComp: `PageHit` },
-  );
-}
-
-import Sidebar from "./sidebar";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/core/styles";
 
-const LoadableComponent = Loadable({
-  loader: () => import('./search/index'),
-  loading: LoadingProvider,
-});
+import iconLoc from './images/icon.png';
 
-function myFunction() {
-  var x = document.getElementById("navbar");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
 
 const QUERY_HEADER_TITLE = graphql`
 query headerTitleQuery {
@@ -48,7 +20,6 @@ query headerTitleQuery {
       helpUrl
       logo {
         link
-        image
       }
       headerLinks {
         link
@@ -60,6 +31,12 @@ query headerTitleQuery {
 `;
 
 const useStyles = makeStyles((theme) => ({
+  header: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+  logo: {
+    verticalAlign: 'bottom'
+  },
   title: {
     flexGrow: 1
   }
@@ -68,11 +45,11 @@ const useStyles = makeStyles((theme) => ({
 const CustomHeader = ({ title, githubUrl }) => {
   const classes = useStyles();
 
-  return (<AppBar position="absolute" color="white">
+  return (<AppBar position="absolute" color="white" className={classes.header}>
 
     <Toolbar>
       <Typography variant="h6" className={classes.title}>
-        { title }
+        <img src={iconLoc} className={classes.logo} width={30} height={30}/> { title }
       </Typography>
       <GitHubButton href={githubUrl} data-show-count="true" aria-label="Star on GitHub">Star</GitHubButton>
     </Toolbar>

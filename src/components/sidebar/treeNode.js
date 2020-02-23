@@ -3,6 +3,8 @@ import OpenedSvg from '../images/opened';
 import ClosedSvg from '../images/closed';
 import config from '../../../config';
 import Link from "../link";
+import ListItem from "@material-ui/core/ListItem";
+import List from "@material-ui/core/List";
 
 const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, ...rest}) => {
   const isCollapsed = collapsed[url];
@@ -18,9 +20,7 @@ const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, .
     location && (location.pathname === url || location.pathname === (config.gatsby.pathPrefix + url));
   const calculatedClassName = `${className} item ${active ? 'active' : ''}`;
   return (
-    <li
-      className={calculatedClassName}
-    >
+    <ListItem>
       {title && (
         <Link
           to={url}
@@ -38,7 +38,7 @@ const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, .
       }
 
       {!isCollapsed && hasChildren ? (
-        <ul>
+        <List>
           {items.map((item) => (
             <TreeNode
               key={item.url}
@@ -47,9 +47,9 @@ const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, .
               {...item}
             />
           ))}
-        </ul>
+        </List>
       ) : null}
-    </li>
+    </ListItem>
   );
 }
 export default TreeNode
