@@ -106,7 +106,7 @@ Observable.create(emitter -> {
 
 ### Background Computation
 
-RXJava는 Scheduler 기능을 제공하며 Schedule thread에서 background task를 수행할 수 있다. 다음과 같이 thread를 따로 지정해서 넣을 수도 있다. 다만 Thread를 바로 호출하는 것이 아닌, Scheduler에 injection을 해주는 형태로써 사용해야 한다.
+RXJava는 Scheduler 기능을 제공하며 Schedule thread에서 background task를 수행할 수 있습니다. 다음과 같이 thread를 따로 지정해서 넣을 수도 있습니다. 다만 Thread를 바로 호출하는 것이 아닌, Scheduler에 injection을 해주는 형태로써 사용해야 합니다.
 
 ```java
 Executor subscriber = Executors.newSingleThreadExecutor(new ThreadFactory() {
