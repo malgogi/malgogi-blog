@@ -10,7 +10,7 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import ListItemText from "@material-ui/core/ListItemText";
 
-const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, ...rest}) => {
+const TreeNode = ({className = '', setCollapsed, first, collapsed, url, title, items, ...rest}) => {
   const isCollapsed = collapsed[url];
   const collapse = () => {
     setCollapsed(url);
@@ -26,7 +26,7 @@ const TreeNode = ({className = '', setCollapsed, collapsed, url, title, items, .
 
   return (
     <React.Fragment>
-    <ListItem component="div" disablePadding divider>
+    <ListItem component="div" disablePadding divider={!first}>
       {title && (
         <React.Fragment>
         <ListItemText color={active ? "secondary" : "primary" }>

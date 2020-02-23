@@ -90,7 +90,7 @@ const Tree = ({edges}) => {
   }
   return (
     <TreeNode
-      className='firstLevel'
+      first
       setCollapsed={toggle}
       collapsed={collapsed}
       {...treeData}

@@ -24,8 +24,12 @@ const useStyles = makeStyles((theme) => ({
   drawerRoot: {
     flexShrink: 0,
   },
-  toolbar: theme.mixins.toolbar,
-}))
+  toolbar: {
+    ...theme.mixins.toolbar,
+    paddingTop: 0,
+    paddingBottom: 0
+  }
+}));
 
 const CustomSidebar = ({ items }) => {
   const classes = useStyles();
