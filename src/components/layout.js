@@ -60,33 +60,25 @@ const useStyles = makeStyles(theme => ({
 function ScrollTop(props) {
   const { children } = props;
   const classes = useStyles();
-  
-  const trigger = useScrollTrigger({
-    target: window,
-    disableHysteresis: true,
-    threshold: 100,
-  });
+  const isBrowser = () => typeof window !== 'undefined'
 
   const handleClick = event => {
-    console.log('click')
-    const anchor = window.document.querySelector('#back-to-top-anchor');
-
-    console.log(anchor)
+    const anchor = isBrowser() && window.document.querySelector('#back-to-top-anchor');
+    
     if (anchor) {
       anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
 
   return (
-    <Zoom in={trigger}>
-      <div onClick={handleClick} role="presentation"  className={classes.root}>
-        {children}
-      </div>
-    </Zoom>
+    <div onClick={handleClick} role="presentation"  className={classes.root}>
+      {children}
+    </div>
+    
   );
 }
 
-const Layout = ({ children, location, window }) => {
+const Layout = ({ children, location }) => {
   const [openSidebar, setOpenSidebar] = useState(false);
 
   return (
