@@ -8,6 +8,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+
 import iconLoc from './images/icon.png';
 
 
@@ -42,12 +45,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const CustomHeader = ({ title, githubUrl }) => {
+const CustomHeader = ({ title, githubUrl, id,  open, onClickMenu }) => {
   const classes = useStyles();
 
-  return (<AppBar position="sticky" color="white" className={classes.header}>
+  return (<AppBar id={id} position="sticky" color="white" className={classes.header}>
 
     <Toolbar>
+      <IconButton edge="start" onClick={onClickMenu} color="inherit" aria-label="menu">
+        <MenuIcon />
+      </IconButton>
       <Typography variant="h6" className={classes.title}>
         <img src={iconLoc} className={classes.logo} width={30} height={30}/> { title }
       </Typography>
@@ -56,7 +62,7 @@ const CustomHeader = ({ title, githubUrl }) => {
   </AppBar>)
 };
 
-const HeaderContainer = ({location}) => {
+const HeaderContainer = ({ id, location, onClickMenu, open }) => {
   return (<StaticQuery
     query={QUERY_HEADER_TITLE}
     render={(data) => {
@@ -71,7 +77,7 @@ const HeaderContainer = ({location}) => {
         }
       } = data;
 
-      return (<CustomHeader title={headerTitle} githubUrl={githubUrl} />);
+      return (<CustomHeader id={id} open={open}  onClickMenu={onClickMenu} title={headerTitle} githubUrl={githubUrl} />);
     }}
   />);
 };
