@@ -39,14 +39,14 @@ self.__precacheManifest = [
     "url": "commons-af023e7ad96d974b652e.js"
   },
   {
-    "url": "app-7c2d6351e050d5650a19.js"
+    "url": "app-c2998bb606df131b27af.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-328a2b7c20aa4ad52a6f.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "bb6d93d4c0c645a9e74be505b84dd5a6"
+    "revision": "a7ab1e16aefccdacc443ac9071d475ae"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
@@ -147,7 +147,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/malgogi-blog/app-7c2d6351e050d5650a19.js`))) {
+  if (!resources || !(await caches.match(`/malgogi-blog/app-c2998bb606df131b27af.js`))) {
     return await fetch(event.request)
   }
 
