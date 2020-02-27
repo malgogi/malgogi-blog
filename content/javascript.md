@@ -1,7 +1,5 @@
 ---
-title: "javascript"
+title: "Javascript"
 metaTitle: "javascript"
-metaDescription: "Javascript"
+metaDescription: "Changes"
 ---
-
-Javascript

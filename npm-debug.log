@@ -2,20 +2,20 @@
 1 verbose cli [ '/Users/malgogi/.nvm/versions/node/v7.5.0/bin/node',
 1 verbose cli   '/Users/malgogi/.nvm/versions/node/v7.5.0/bin/npm',
 1 verbose cli   'run',
-1 verbose cli   'start' ]
+1 verbose cli   'deploy' ]
 2 info using npm@4.1.2
 3 info using node@v7.5.0
-4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info lifecycle malgogi-blog@0.0.1~prestart: malgogi-blog@0.0.1
-6 silly lifecycle malgogi-blog@0.0.1~prestart: no script for prestart, continuing
-7 info lifecycle malgogi-blog@0.0.1~start: malgogi-blog@0.0.1
-8 verbose lifecycle malgogi-blog@0.0.1~start: unsafe-perm in lifecycle true
-9 verbose lifecycle malgogi-blog@0.0.1~start: PATH: /Users/malgogi/.nvm/versions/node/v7.5.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/malgogi/Desktop/project/malgogi-blog/node_modules/.bin:/usr/local/opt/openssl/bin:/Users/malgogi/anaconda3/bin:/Users/malgogi/.jenv/shims:/Users/malgogi/.jenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/openssl/bin:/Users/malgogi/anaconda3/bin:/Users/malgogi/.jenv/shims:/Users/malgogi/.jenv/bin:/Users/malgogi/.nvm/versions/node/v7.5.0/bin:usr/local/Cellar/protobuf/3.5.1_1/bin:/Users/malgogi/Desktop/tools/kafka_2.12-1.1.0/bin:JAVA_HOME/bin:/Users/malgogi/.rvm/bin:usr/local/Cellar/protobuf/3.5.1_1/bin:/Users/malgogi/Desktop/tools/kafka_2.12-1.1.0/bin:JAVA_HOME/bin:/Users/malgogi/.rvm/bin
-10 verbose lifecycle malgogi-blog@0.0.1~start: CWD: /Users/malgogi/Desktop/project/malgogi-blog
-11 silly lifecycle malgogi-blog@0.0.1~start: Args: [ '-c', 'gatsby develop' ]
-12 silly lifecycle malgogi-blog@0.0.1~start: Returned: code: 1  signal: null
-13 info lifecycle malgogi-blog@0.0.1~start: Failed to exec start script
-14 verbose stack Error: malgogi-blog@0.0.1 start: `gatsby develop`
+4 verbose run-script [ 'predeploy', 'deploy', 'postdeploy' ]
+5 info lifecycle malgogi-blog@0.0.1~predeploy: malgogi-blog@0.0.1
+6 silly lifecycle malgogi-blog@0.0.1~predeploy: no script for predeploy, continuing
+7 info lifecycle malgogi-blog@0.0.1~deploy: malgogi-blog@0.0.1
+8 verbose lifecycle malgogi-blog@0.0.1~deploy: unsafe-perm in lifecycle true
+9 verbose lifecycle malgogi-blog@0.0.1~deploy: PATH: /Users/malgogi/.nvm/versions/node/v7.5.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/malgogi/Desktop/project/malgogi-blog/node_modules/.bin:/usr/local/opt/openssl/bin:/Users/malgogi/anaconda3/bin:/Users/malgogi/anaconda3/condabin:/Users/malgogi/.jenv/shims:/Users/malgogi/.jenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/openssl/bin:/Users/malgogi/anaconda3/bin:/Users/malgogi/.jenv/shims:/Users/malgogi/.jenv/bin:/Users/malgogi/.nvm/versions/node/v7.5.0/bin:usr/local/Cellar/protobuf/3.5.1_1/bin:/Users/malgogi/Desktop/tools/kafka_2.12-1.1.0/bin:JAVA_HOME/bin:/Users/malgogi/.rvm/bin:usr/local/Cellar/protobuf/3.5.1_1/bin:/Users/malgogi/Desktop/tools/kafka_2.12-1.1.0/bin:JAVA_HOME/bin:/Users/malgogi/.rvm/bin
+10 verbose lifecycle malgogi-blog@0.0.1~deploy: CWD: /Users/malgogi/Desktop/project/malgogi-blog
+11 silly lifecycle malgogi-blog@0.0.1~deploy: Args: [ '-c', 'gatsby build --prefix-paths && gh-pages -d public' ]
+12 silly lifecycle malgogi-blog@0.0.1~deploy: Returned: code: 1  signal: null
+13 info lifecycle malgogi-blog@0.0.1~deploy: Failed to exec deploy script
+14 verbose stack Error: malgogi-blog@0.0.1 deploy: `gatsby build --prefix-paths && gh-pages -d public`
 14 verbose stack Exit status 1
 14 verbose stack     at EventEmitter.<anonymous> (/Users/malgogi/.nvm/versions/node/v7.5.0/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
 14 verbose stack     at emitTwo (events.js:106:13)
@@ -28,18 +28,18 @@
 15 verbose pkgid malgogi-blog@0.0.1
 16 verbose cwd /Users/malgogi/Desktop/project/malgogi-blog
 17 error Darwin 18.7.0
-18 error argv "/Users/malgogi/.nvm/versions/node/v7.5.0/bin/node" "/Users/malgogi/.nvm/versions/node/v7.5.0/bin/npm" "run" "start"
+18 error argv "/Users/malgogi/.nvm/versions/node/v7.5.0/bin/node" "/Users/malgogi/.nvm/versions/node/v7.5.0/bin/npm" "run" "deploy"
 19 error node v7.5.0
 20 error npm  v4.1.2
 21 error code ELIFECYCLE
-22 error malgogi-blog@0.0.1 start: `gatsby develop`
+22 error malgogi-blog@0.0.1 deploy: `gatsby build --prefix-paths && gh-pages -d public`
 22 error Exit status 1
-23 error Failed at the malgogi-blog@0.0.1 start script 'gatsby develop'.
+23 error Failed at the malgogi-blog@0.0.1 deploy script 'gatsby build --prefix-paths && gh-pages -d public'.
 23 error Make sure you have the latest version of node.js and npm installed.
 23 error If you do, this is most likely a problem with the malgogi-blog package,
 23 error not with npm itself.
 23 error Tell the author that this fails on your system:
-23 error     gatsby develop
+23 error     gatsby build --prefix-paths && gh-pages -d public
 23 error You can get information on how to open an issue for this project with:
 23 error     npm bugs malgogi-blog
 23 error Or if that isn't available, you can get their info via:
