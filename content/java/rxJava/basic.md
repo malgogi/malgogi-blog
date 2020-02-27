@@ -152,7 +152,55 @@ Executor subscriber = Executors.newSingleThreadExecutor(new ThreadFactory() {
 
 ### Schedulers
 
-RXJava에서는 Thread를 사용할 때, Schedule을 지원을 하며 몇가지 utility를 지원한다.
+RXJava에서는 Thread를 사용할 때, Schedule을 통해 지원을 하며 몇가지 utility를 지원합니다.
+
+- Schedulers.computation(): 고정된 thread 에서 Computation intensive work를 backgorund에서 돌릴 때 사용합니다.
+- Schedulers.io(): I/O나 blocking operation을 동적인 thread set에서 수행할 때 사용합니다.
+- Schedulers.single(): single thread에서 동작하며 FIFO 방식입니다.
+- Schedulers.trampoline(): testing 목적으로 사용하며, single 방식의 thread들에서 동작합니다.
+
+대부분은 사용가능하지만 특수한 환경에서는 자체적인 scheduler를 가질 수 있습니다.
+ex) Android : AndroidSchedulers.mainThread(), SwingScheduler.instance() or JavaFXSchedulers.gui()
+또한 기존의 Executor를 생성한 경우 wrapping에서 사용하는 방식 또한 가능합니다. ```Schedulers.from(Executor)```
+RxJava에서는 기본적으로 daemonThread를 활용합니다.
+
+### Concurrency within a flow
+
+기본적으로 RxJava에서는 processing stage가 동시에 동작할 수 있습니다.
+아래의 예제는 1 ~ 10의 flow을 생성하지만,
+lambda에서는 같은 computation thread에서 consume하기 때문에 Paralle하게 동작하지 않습니다.
+
+```java
+Flowable.range(1, 10)
+  .observeOn(Schedulers.computation())
+  .map(v -> v * v)
+  .blockingSubscribe(System.out::println);
+```
+
+하지만 아래의 예제에서는 독립적인 Flow를 생성하여 각각의 Thread에서 computation이 동작합니다.
+하지만 flatMap은 연산의 순서를 보장하지 않으며 다음과 같은 대체 연산이 존재합니다.
+
+- ```concatMap``` : Map 연산을 하나의 inner flow에서 실행합니다.
+- ```concatMapEager```: 각각의 flow에서 실행하지만 inner flow의 생성된 순서대로 output flow가 생성됩니다.
+
+```java
+Flowable.range(1, 10)
+  .flatMap(v ->
+      Flowable.just(v)
+        .subscribeOn(Schedulers.computation())
+        .map(w -> w * w)
+  )
+  .blockingSubscribe(System.out::println);
+```
+
+```java
+Flowable.range(1, 10)
+  .parallel()
+  .runOn(Schedulers.computation())
+  .map(v -> v * v)
+  .sequential()
+  .blockingSubscribe(System.out::println);
+```
 
 ## 출처
 
