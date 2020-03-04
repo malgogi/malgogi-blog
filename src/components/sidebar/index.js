@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
     paddingTop: 0,
     paddingBottom: 0
+  },
+  list: {
+    width: 250,
   }
 }));
 
@@ -38,7 +41,7 @@ const CustomSidebar = ({ items }) => {
       className={classes.drawerRoot}
       variant="permanent">
       <div className={classes.toolbar}/>
-      <List component="div" disablePadding>
+      <List component="div" disablePadding className={classes.list}>
         <Tree
           edges={items.edges}
         />

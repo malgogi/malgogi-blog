@@ -43,8 +43,9 @@ const MaxWidth = styled('div')`
   }
 `;
 const LeftSideBarWidth = styled('div')`
-  width: 298px;
+  width: 300px;
 `;
+
 const RightSideBarWidth = styled('div')`
   width: 224px;
 `;
@@ -55,6 +56,10 @@ const useStyles = makeStyles(theme => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
+  floatingButton: {
+    color: '#fff',
+    backgroundColor: '#542683'
+  }
 }));
 
 function ScrollTop(props) {
@@ -80,6 +85,7 @@ function ScrollTop(props) {
 
 const Layout = ({ children, location }) => {
   const [openSidebar, setOpenSidebar] = useState(false);
+  const classes = useStyles();
 
   return (
   <ThemeProvider location={location}>
@@ -100,9 +106,9 @@ const Layout = ({ children, location }) => {
         </Content>
       </Wrapper>
       <ScrollTop {...{ children }}>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
-          <KeyboardArrowUpIcon />
-        </Fab>
+          <Fab className={classes.floatingButton} size="small" aria-label="scroll back to top">
+              <KeyboardArrowUpIcon />
+          </Fab>
       </ScrollTop>
     </MDXProvider>
   </ThemeProvider>

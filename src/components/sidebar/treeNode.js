@@ -6,12 +6,24 @@ import Link from "../link";
 import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
 import Button from "@material-ui/core/Button";
+import {makeStyles} from "@material-ui/core/styles";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import ListItemText from "@material-ui/core/ListItemText";
 
-const TreeNode = ({className = '', setCollapsed, first, collapsed, url, title, items, ...rest}) => {
+const useStyles = makeStyles((theme) => ({
+  content: {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
+  },
+  nestedList: {
+    borderLeft: '10px solid #542683'
+  }
+}));
+
+const TreeNode = ({className = '', setCollapsed, first, collapsed, url, title, prefix, items, ...rest}) => {
   const isCollapsed = collapsed[url];
+  const classes = useStyles();
   const collapse = () => {
     setCollapsed(url);
   }
@@ -29,11 +41,11 @@ const TreeNode = ({className = '', setCollapsed, first, collapsed, url, title, i
     <ListItem component="div" disablePadding divider={!first}>
       {title && (
         <React.Fragment>
-        <ListItemText color={active ? "secondary" : "primary" }>
+        <ListItemText color={active ? "secondary" : "primary" } className={classes.content}>
             <Link
               to={url}
             >
-              {title}
+            {title}
             </Link>
           </ListItemText>
 
@@ -48,8 +60,8 @@ const TreeNode = ({className = '', setCollapsed, first, collapsed, url, title, i
     </ListItem>
 
     {!isCollapsed && hasChildren ? (<Collapse in={!isCollapsed} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          {items.map((item) => (
+        <List component="div" disablePadding className={classes.nestedList}>
+          {items.map((item, idx) => (
             <TreeNode
               key={item.url}
               setCollapsed={setCollapsed}
