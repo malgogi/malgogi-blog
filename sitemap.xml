@@ -12,4 +12,6 @@
 <url> <loc>https://malgogi.github.io/malgogi-blog/utils</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://malgogi.github.io/malgogi-blog/java/rxJava/basic</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://malgogi.github.io/malgogi-blog/java/spring/handlerMethodArgumentResolver</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://malgogi.github.io/malgogi-blog/redis</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://malgogi.github.io/malgogi-blog/redis/setup</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
