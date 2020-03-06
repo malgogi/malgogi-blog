@@ -13,6 +13,10 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
+
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144100150-2"></script>
+
           {config.siteMetadata.ogImage ?
             (<meta property="og:image" content={config.siteMetadata.ogImage} />) : null
           }
@@ -38,6 +42,13 @@ export default class HTML extends React.Component {
           defer
           dangerouslySetInnerHTML={{
             __html: `
+            window.dataLayer = window.dataLayer || [];
+            
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-144100150-2');
+
             function navBarClose() {
               document.getElementById("navbar").classList.toggle("responsive");
             }
