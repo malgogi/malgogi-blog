@@ -17,6 +17,9 @@ export default class HTML extends React.Component {
           {/* Global site tag (gtag.js) - Google Analytics */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144100150-2"></script>
 
+          {/* Ad sense */}
+          <script data-ad-client="ca-pub-9676172070298208" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
           {config.siteMetadata.ogImage ?
             (<meta property="og:image" content={config.siteMetadata.ogImage} />) : null
           }
