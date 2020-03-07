@@ -4,7 +4,20 @@ metaTitle: "setup"
 metaDescription: "setup"
 ---
 
-```docker-compose.yml
+
+## Setup
+
+### 1. Redis-cli setup
+
+```bash
+brew install
+```
+
+### 2. Docker 환경 셋업
+
+docker-compose.yml
+
+```yml
 redis:
   container_name: redis-local
   image: redis:4.0.8-alpine
@@ -15,6 +28,11 @@ redis:
   restart: always
 ```
 
-## 출처
+## Test command
 
-[redis-gateway](http://redisgate.kr/redis/education/docker-compose.php)
+```bash
+
+# ping. It should returns "PONG"
+ping
+
+```
