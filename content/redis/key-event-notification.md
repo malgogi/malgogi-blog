@@ -16,8 +16,8 @@ metaDescription: "Redis Key Event Notification"
 
 ### 1. Event Types
 
-K     Keyspace events, published with __keyspace@<db>__ prefix.
-E     Keyevent events, published with __keyevent@<db>__ prefix.
+K     Keyspace events, published with ```__keyspace@<db>__```prefix.
+E     Keyevent events, published with ```__keyevent@<db>__``` prefix.
 g     Generic commands (non-type specific) like DEL, EXPIRE, RENAME, ...
 $     String commands
 l     List commands
