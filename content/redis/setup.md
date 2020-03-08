@@ -20,7 +20,7 @@ docker-compose.yml
 ```yml
 redis:
   container_name: redis-local
-  image: redis:4.0.8-alpine
+  image: redis:5.0.7-alpine
   ports:
     - "6379:6379"
   volumes:
