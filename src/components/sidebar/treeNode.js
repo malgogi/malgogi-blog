@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const TreeNode = ({className = '', setCollapsed, first, collapsed, url, title, prefix, items, ...rest}) => {
-  const isCollapsed = collapsed[url];
+  const isCollapsed = (collapsed[url] === undefined && !first) || collapsed[url];
+
   const classes = useStyles();
   const collapse = () => {
     setCollapsed(url);

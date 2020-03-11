@@ -83,7 +83,7 @@ const Tree = ({edges}) => {
   const toggle = (url) => {
     setCollapsed({
       ...collapsed,
-      [url]: !collapsed[url],
+      [url]: collapsed[url] === undefined ? false : !collapsed[url],
     });
   }
   return (
