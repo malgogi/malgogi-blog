@@ -1,6 +1,6 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/malgogi-blog",
+		"pathPrefix": "/",
 		"siteUrl": "https://malgogi.github.io",
 		"gaTrackingId": null
 	},
