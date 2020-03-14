@@ -14,9 +14,11 @@ const useStyles = makeStyles((theme) => ({
 const Link = ({ to, ...props }) => {
   const classes = useStyles();
 
+  const noPropagation = e => e.stopPropagation()
+
   return isAbsoluteUrl(to)
     ? (<a href={to} {...props} className={classes.link} />)
-    : (<GatsbyLink to={to} className={classes.link} {...props} />);
+    : (<GatsbyLink onClick={noPropagation} to={to} className={classes.link} {...props} />);
 };
 
 export default Link;

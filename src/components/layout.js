@@ -87,6 +87,10 @@ const Layout = ({ children, location }) => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const classes = useStyles();
 
+  const onContentClick = () => {
+    setOpenSidebar(false);
+  };
+
   return (
   <ThemeProvider location={location}>
     <MDXProvider components={mdxComponents}>
@@ -101,7 +105,7 @@ const Layout = ({ children, location }) => {
           )
         }
         
-        <Content>
+        <Content onClick={onContentClick}>
           <MaxWidth>{children}</MaxWidth>
         </Content>
       </Wrapper>
