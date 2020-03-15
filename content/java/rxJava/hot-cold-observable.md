@@ -96,7 +96,3 @@ try {
     e.printStackTrace();
 }
 ```
-
-## 출처
-
-[Cold Observable? Hot Observable?](https://javaexpert.tistory.com/794)
