@@ -193,6 +193,8 @@ Flowable.range(1, 10)
   .blockingSubscribe(System.out::println);
 ```
 
+또한 다른 방법으로 ```Flowable.parallel()```  다음과 같은 method를 통해서도 가능합니다.
+
 ```java
 Flowable.range(1, 10)
   .parallel()
@@ -201,6 +203,46 @@ Flowable.range(1, 10)
   .sequential()
   .blockingSubscribe(System.out::println);
 ```
+
+### Dependent sub-flows
+
+```flatMap```은 강력한 연산자이며 많은 상황에서 도움이됩니다. 
+예를 들어, Flowable을 반환하는 서비스가 제공되면 첫 번째 서비스에서 생성 한 값으로 다른 서비스를 호출하려고 합니다.
+
+```java
+
+//inventory service
+public class InventoryService {
+    public Flowable<Integer> getInventoryIds () {
+        return Flowable.range(0, 10);
+    }
+}
+
+//echo service
+public class EchoService {
+
+    public Flowable<String> getItems(int id) {
+        return Flowable.range(0,10).map((key) -> id + "-" + key);
+    }
+}
+
+//main
+public class SubFlowTestApplication {
+    public static void main(String[] args) {
+        InventoryService inventoryService = new InventoryService();
+        EchoService echoService = new EchoService();
+
+        inventoryService
+                .getInventoryIds()
+                .flatMap((inventory) -> echoService.getItems(inventory)
+                        .map((item) -> "inventory" + inventory + "item!!!" + item))
+                .subscribe(System.out::println);
+    }
+}
+
+```
+
+
 
 ## 출처
 
