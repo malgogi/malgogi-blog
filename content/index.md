@@ -1,5 +1,6 @@
 ---
-title: "Landing Page"
+title: "Introduction"
 ---
 
-개발 블로그입니다. 잡다한거 다올립니다.
+개발 블로그입니다.
+잡다한거 다올립니다.
