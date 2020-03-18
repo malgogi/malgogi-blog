@@ -24,7 +24,7 @@ Micro Service는 service 또는 도메인 중심으로 어플리케이션을 나
 4. 확실하게 전달하기 어렵다. : 규모가 큰 프로젝트는 철저하게 테스트 하기도 어렵고, 결함 격리가 되지 않기 때문에 하나의 버그가 전체 프로젝트의 장애로 이루어질 수 있습니다.
 5. 확장성의 어려움: 기존에 활용했던 기술스택을 변경하기 위해서는 전체 코드를 수정해야 합니다. 이는 규모가 커질수록 거의 불가능에 가까우며, 필요한 기술 스택을 적용하는데에 어려움을 만듭니다.
 
-## [확장 큐브](https://microservices.io/articles/scalecube.html)
+## 확장 큐브
 
 아래는 The art of scalability에서 가져온 scale cube에 관련된 내용입니다.
 
@@ -36,7 +36,7 @@ Micro Service는 service 또는 도메인 중심으로 어플리케이션을 나
 
 ![Scale Cube](./img/scaling-cube.jpg)
 
-### Micro service의 단점
+## Micro service의 단점
 
 위의 글을 본다면 Micro service가 만능인 것 같지만, 모든 상황에 부합하는 것이 아닙니다. Micro service의 단점은 아래와 같습니다.
 
@@ -52,3 +52,8 @@ Micro Service는 service 또는 도메인 중심으로 어플리케이션을 나
 강제 조항: 문제 해결을 위해 반드시 처리해야 할 이슈
 결과 맥락: 패턴 적용 결과 장,단점 및 새로 발생한 이슈
 연관 패턴: 선행자, 후행자, 대안, 일반화, 세분화 -->
+
+## 출처
+
+- [확장 큐브](https://microservices.io/articles/scalecube.html)
+- [마이크로 서비스 패턴](https://ridibooks.com/books/754028054?_s=instant&_q=%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C+%EC%84%9C%EB%B9%84%EC%8A%A4+%ED%8C%A8%ED%84%B4)
