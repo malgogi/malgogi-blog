@@ -32,6 +32,39 @@ metaDescription: "Decomposition Strategy"
     - 아웃바운드 어댑터
     - Port
   - 예시
-    - 다음의 [링크](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)에서 잘 정리되어 있습니다. 
+    - 다음의 [링크](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)에서 잘 정리되어 있습니다.
+
+## Service란 무엇인가?
+
+- 어떤 기능이 구현되어 단독 배포가 가능한 컴포넌트를 의미합니다.
+- Command와 Query로 구별 됩니다.
+
+## Microservice Architecture란?
+
+다음 3단계 프로세스를 통해 정의합니다.
+
+1. 어플리케이션의 요건을 핵심 요청으로 추상화합니다.
+2. 해당 요청을 서비스로 나누어 분해 할지를 결정합니다.
+   - 고려사항: 네트워크 지연, consistency
+3. 서비스별로 API를 정의합니다.
+
+### Application architecture definition process
+
+1. 도메인 모델 정의
+   1. Scenario 정의
+   2. Doamin 정의
+   3. Depenedency 정의
+2. System 작업 정의
+   1. Command, Query 두 단계로 나누어서 정의
+3. 서비스 정의
+   1. 비즈니스 능력 패턴별 분해
+   2. 하위 도메인 패턴별 분해
+      1. bounded context로 분해
+
+Tips
+
+1. Constraints를 항상 고려해야 합니다. (Network latency, Availability, Consistency)
+2. Consistency의 경우 기존에는 2PC를 많이 사용했으나, Microservice에서는 Saga pattern이 유명합니다.
+3. 만능 클래스는 회피합니다. : 모든 코드 전반에 쓰이는 만능 클래스는 지양하며 분해를 통해서 적합한 단위로 분해할 수 있게 합니다.
 
 - [마이크로 서비스 패턴](https://ridibooks.com/books/754028054?_s=instant&_q=%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C+%EC%84%9C%EB%B9%84%EC%8A%A4+%ED%8C%A8%ED%84%B4)
