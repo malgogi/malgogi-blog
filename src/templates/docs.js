@@ -102,6 +102,7 @@ export default class MDXRuntimeTest extends Component {
           {metaDescription ? <meta name="description" content={metaDescription} /> : null}
           {metaTitle ? <meta property="og:title" content={metaTitle} /> : null}
           {metaDescription ? <meta property="og:description" content={metaDescription} /> : null}
+          <meta name="google-site-verification" content="1QyL1Cx0AMDhzkqrADqwBg31OcDV-obGV5teP-LWPb0" />
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
         <div className={'titleWrapper'}>
