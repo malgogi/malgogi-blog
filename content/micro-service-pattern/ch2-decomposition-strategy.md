@@ -61,7 +61,7 @@ metaDescription: "Decomposition Strategy"
    2. 하위 도메인 패턴별 분해
       1. bounded context로 분해
 
-Tips
+### Tips
 
 1. Constraints를 항상 고려해야 합니다. (Network latency, Availability, Consistency)
 2. Consistency의 경우 기존에는 2PC를 많이 사용했으나, Microservice에서는 Saga pattern이 유명합니다.
